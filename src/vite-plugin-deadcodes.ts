@@ -23,7 +23,6 @@ const formatAndUniqLoadedFiles = (files: string[]) => {
   return result;
 };
 
-// NOTE 纯type类型（.ts）会被忽略， 无法解决，文档说明
 // TODO src/style/*.less 文件会被忽略，因为无法解析less中的@import？
 type GetUnusedFiles = (options: {
   allFiles: string[];

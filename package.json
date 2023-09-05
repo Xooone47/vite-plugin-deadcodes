@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-deadcodes",
-  "version": "0.0.0",
-  "description": "Vite plugin to detect unused files",
+  "version": "0.0.1",
+  "description": "Vite plugin to detect unused files. JS, TS, React, Vue projects are supported.",
   "main": "./dist/vite-plugin-deadcodes.cjs",
   "module": "./dist/vite-plugin-deadcodes.mjs",
   "types": "./dist/vite-plugin-deadcodes.d.ts",
@@ -24,7 +24,10 @@
     "plugin",
     "deadcode",
     "unused",
-    "useless"
+    "useless",
+    "typescript",
+    "react",
+    "vue"
   ],
   "bugs": "https://github.com/Xooone47/vite-plugin-deadcodes/issues",
   "homepage": "https://github.com/Xooone47/vite-plugin-deadcodes",
