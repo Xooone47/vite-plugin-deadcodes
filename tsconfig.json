@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {                            /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+      "@/*": ["src/*"],
+    },
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "**/__tests__/*", "dist"]
+}
