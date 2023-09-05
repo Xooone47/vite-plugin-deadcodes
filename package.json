@@ -1,0 +1,45 @@
+{
+  "name": "vite-plugin-deadcodes",
+  "version": "0.0.0",
+  "description": "Vite plugin to detect unused files",
+  "main": "dist/vite-plugin-deadcodes.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .ts src --fix",
+    "build": "rollup -c rollup.js"
+  },
+  "author": "Deland",
+  "license": "ISC",
+  "keywords": [
+    "vite",
+    "plugin",
+    "deadcode",
+    "unused",
+    "useless"
+  ],
+  "bugs": "https://github.com/Xooone47/vite-plugin-deadcodes/issues",
+  "homepage": "https://github.com/Xooone47/vite-plugin-deadcodes",
+  "repository": "https://github.com/Xooone47/vite-plugin-deadcodes.git",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.2",
+    "@types/node": "^20.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.41.0",
+    "husky": "^8.0.3",
+    "rollup": "^3.23.0",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "git-branch": "^2.0.1",
+    "user-meta": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=10.13.0"
+  }
+}
