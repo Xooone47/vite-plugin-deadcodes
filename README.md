@@ -96,7 +96,7 @@ The path of the result file.
 
 ```js
 vitePluginDeadcodes({
-  emit: `/path/to/result/deadcodes.json`
+  emit: '/path/to/result/deadcodes.json'
 })
 ```
 
@@ -104,9 +104,11 @@ vitePluginDeadcodes({
 
 The files that should be ignored.
 
+```js
 vitePluginDeadcodes({
   excludes: ['**/*.d.ts', '**/*.(stories|spec).(js|jsx)'],
 })
+```
 
 
 ### options.console (default: `false`)
