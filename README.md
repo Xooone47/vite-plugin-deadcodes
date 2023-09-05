@@ -33,6 +33,8 @@ pnpm add -D vite-plugin-deadcodes
 
 ## Usage
 
+### Step 1: config plugin
+
 ```js
 // vite.config.js
 import { defineConfig } from 'vite';
@@ -61,6 +63,14 @@ export default defineConfig({
     }),
   ]
 });
+```
+
+### Step 2: run build command
+
+This plugin will only run in build mode.
+
+```bash
+npx vite build
 ```
 
 ## Options
