@@ -5,8 +5,6 @@ import glob from 'glob';
 import uniq from 'lodash.uniq';
 import { minimatch } from 'minimatch';
 
-const isDevMode = true;
-
 const getProjectFiles = (dir: string) => {
   const parttern = path.join(dir, '**/*');
   const files = glob.sync(parttern, {
@@ -72,6 +70,21 @@ const generatePluginConfig = (rawOptions: PluginRawOptions = {}): PluginOptions 
   };
 };
 
+interface OutputResult {
+  unusedFiles: {
+    total: number;
+    files: string[];
+  };
+  // loadedFiles: {
+  //   total: number;
+  //   files: string[];
+  // };
+  allFiles: {
+    total: number;
+    files: string[];
+  };
+}
+
 export default function vitePluginDeadcodes(rawOptions: PluginRawOptions = {}) {
   const pluginOptions = generatePluginConfig(rawOptions);
 
@@ -118,35 +131,38 @@ export default function vitePluginDeadcodes(rawOptions: PluginRawOptions = {}) {
       // console.log('vite-plugin-deadcodes writeBundle', options);
       const formattedLoadedFiles = formatAndUniqLoadedFiles(loadedFiles);
       const allFiles = getProjectFiles(pluginOptions.sourceDir);
-      const { rawUnusedFiles, unusedFiles } = getUnusedFiles({
+      const {
+        // rawUnusedFiles,
+        unusedFiles
+      } = getUnusedFiles({
         allFiles: allFiles,
         loadedFiles: formattedLoadedFiles,
         excludes: pluginOptions.excludes,
       });
-      const formattedFilesInLoadHook = formatAndUniqLoadedFiles(filesInLoadHook);
-      const formattedFilesInLoadTransform = formatAndUniqLoadedFiles(filesInLoadTransform);
+      // const formattedFilesInLoadHook = formatAndUniqLoadedFiles(filesInLoadHook);
+      // const formattedFilesInLoadTransform = formatAndUniqLoadedFiles(filesInLoadTransform);
 
-      const result = {
+      const result: OutputResult = {
         unusedFiles: {
           total: unusedFiles.length,
           files: unusedFiles,
         },
-        rawUnusedFiles: {
-          total: rawUnusedFiles.length,
-          files: rawUnusedFiles,
-        },
-        loadedFiles: {
-          total: formattedLoadedFiles.length,
-          files: formattedLoadedFiles,
-        },
-        filesInLoadHook: {
-          total: formattedFilesInLoadHook.length,
-          files: formattedFilesInLoadHook,
-        },
-        filesInLoadTransform: {
-          total: formattedFilesInLoadTransform.length,
-          files: formattedFilesInLoadTransform,
-        },
+        // rawUnusedFiles: {
+        //   total: rawUnusedFiles.length,
+        //   files: rawUnusedFiles,
+        // },
+        // loadedFiles: {
+        //   total: formattedLoadedFiles.length,
+        //   files: formattedLoadedFiles,
+        // },
+        // filesInLoadHook: {
+        //   total: formattedFilesInLoadHook.length,
+        //   files: formattedFilesInLoadHook,
+        // },
+        // filesInLoadTransform: {
+        //   total: formattedFilesInLoadTransform.length,
+        //   files: formattedFilesInLoadTransform,
+        // },
         allFiles: {
           total: allFiles.length,
           files: allFiles,
