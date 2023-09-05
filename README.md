@@ -17,8 +17,8 @@ Javascript, typescript, react, vue projects are supported:
 - ✅ stylesheet (.css|.less|.scss|...)
 - ✅ assets (.svg|.img|.png|.mp4|...)
 - ✅ ...
-- ❌ Typescript file which is composed of `types only` ([see below](#type-only-files))
-- ❌ Stylesheet file which import by `@import` statement ([see below](#stylesheet-by-import-statement))
+- ❌ Typescript files which are composed of `types only` ([see below](#type-only-files))
+- ❌ Stylesheet files which are imported by `@import` statements ([see below](#stylesheet-by-import-statement))
 
 ## Installation
 
@@ -117,7 +117,7 @@ Set `true` to show result in the console.
 
 ### Type only files
 
-Typescript files that were composed of types only, these files will be removed by typescript parse. Example:
+Typescript files that were composed of types only, these files will be removed by typescript parser. Example:
 
 ```ts
 export type Foo = 'a' | 'b';
@@ -125,6 +125,19 @@ export type Foo = 'a' | 'b';
 export interface Bar {
   name: string;
 }
+```
+
+If this file contains some exports that are not type, then it can be detected. Like:
+
+```ts
+export type Foo = 'a' | 'b';
+
+export interface Bar {
+  name: string;
+}
+
+// This function will not be removed by ts parser
+export const add = (a: number, b: number): number => a + b;
 ```
 
 ### Stylesheet By Import Statement
