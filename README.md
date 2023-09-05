@@ -2,6 +2,10 @@
 
 A vite plugin to detect unused files, which is similar to [webpack-deadcode-plugin](https://www.npmjs.com/package/webpack-deadcode-plugin).
 
+The detected result be like:
+
+![output example](./assets/deadcodes-example.jpg)
+
 ## Supported File Types
 
 Javascript, typescript, react, vue projects are supported:
@@ -28,8 +32,6 @@ yarn add -D vite-plugin-deadcodes
 # pnpm
 pnpm add -D vite-plugin-deadcodes
 ```
-
-![output example](./assets/deadcodes-example.jpg)
 
 ## Usage
 
